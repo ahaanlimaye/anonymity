@@ -1,4 +1,3 @@
-import re
 import spacy
 from spacy.matcher import Matcher
 nlp = spacy.load('en_core_web_sm')
@@ -35,5 +34,22 @@ def anonymize_text(str):
         text += txt + token.whitespace_
     return text
 
-inp_text = "My name is Ahaan Limaye. I like to go skiing in Vermont. If you guys have any questions please email me at ahaan.limaye@gmail.com or call me at 908-821-6332."
-print(anonymize_text(inp_text))
+# import pdfplumber
+
+# with pdfplumber.open(r'Resume - Ahaan Limaye.pdf') as pdf:
+#     first_page = pdf.pages[0]
+#     text = first_page.extract_text()
+#     print(anonymize_text(text))
+
+# f = open('sample_email1.txt','r+')
+# text = f.read()
+# print(text)
+# text = anonymize_text(text)
+# print(text)
+# f.seek(0)
+# f.write(text)
+# f.truncate()
+# f.close()
+
+# inp_text = "My name is Ahaan Limaye. I like to go skiing in Vermont. If you guys have any questions please email me at ahaan.limaye@gmail.com or call me at 908-821-6332."
+# print(anonymize_text(inp_text))
