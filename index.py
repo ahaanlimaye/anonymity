@@ -20,19 +20,29 @@ def anonymize_text(str):
     doc = nlp(text)
     merge_phone_number(doc)
     text = ""
-    ent_types = ["PERSON", ]
+    redact = []
+    ent_types = ["PERSON", "ORG", "GPE", "LOC", "DATE", "TIME", "MONEY"]
     for token in doc:
         txt = ""
         if (token.like_email):
             txt = "<EMAIL>"
-        elif (len(token.ent_type_) > 0):
+            redact.append(token.text)
+        elif (token.like_url):
+            txt = "<URL>"
+            redact.append(token.text)
+        elif (token.ent_type_ in ent_types):
             txt = "<" + token.ent_type_ + ">"
-        elif (token.pos_ == "PROPN"):
-            txt = "<PROPER_NOUN>"
+            redact.append(token.text)
+        # elif (len(token.ent_type_) > 0):
+        #     txt = "<" + token.ent_type_ + ">"
+        #     redact.append(token.text)
+        # elif (token.pos_ == "PROPN"):
+        #     txt = "<PROPER_NOUN>"
+        #     redact.append(token.text)
         else:
             txt = token.text
         text += txt + token.whitespace_
-    return text
+    return (text, redact)
 
 # import pdfplumber
 

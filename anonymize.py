@@ -1,6 +1,8 @@
 from index import anonymize_text
 from pathlib import Path
+from fpdf import FPDF
 import pdfplumber
+
 
 def anonymize_pdf(filepath):
     path = Path(filepath)
@@ -12,26 +14,36 @@ def anonymize_pdf(filepath):
 
     text = anonymize_text(text)
 
-    path = Path(str(path.parent) + "/" + str(path.stem) + "_anonymized.txt") 
-    print(path)  
+    path = Path(str(path.parent) + "/" + str(path.stem) + "_anonymized.txt")
+    print(path)
     f = open(path, "w+")
     f.write(text)
     f.close()
 
+
+    pdf = FPDF()
+    pdf.add_page()
+    pdf.set_font('Arial', 'B', 16)
+    pdf.cell(40, 10, 'Hello World!')
+    pdf.output('tuto1.pdf', 'F')
+
+
 def anonymize_txt(filepath):
     path = Path(filepath)
-    f = open(path,"r")
+    f = open(path, "r")
     text = f.read()
     f.close()
 
     text = anonymize_text(text)
 
-    path = Path(str(path.parent) + "/" + str(path.stem) + "_anonymized.txt")  
+    path = Path(str(path.parent) + "/" + str(path.stem) + "_anonymized.txt")
     f = open(path, "w+")
     f.seek(0)
     f.write(text)
     f.truncate()
     f.close()
 
+
 if __name__ == "__main__":
-    anonymize_pdf("C:\\Users\\ahaan\\OneDrive\\Desktop\\workspace\\Resume-AhaanLimaye.pdf")
+    anonymize_pdf(
+        "C:\\Users\\ahaan\\OneDrive\\Desktop\\workspace\\Resume-AhaanLimaye.pdf")
