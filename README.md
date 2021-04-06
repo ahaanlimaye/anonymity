@@ -69,7 +69,7 @@ After:
 
 ### TXT File
 ```
->>> python c:\Users\ahaan\OneDrive\Desktop\workspace\anonymity\samples\sample_text1.txt -i PERSON -i ORG -i DATE -i TIME -i EMAIL -i PHONE_NUMBER -i GPE
+>>> python c:\Users\ahaan\OneDrive\Desktop\workspace\anonymity\samples\sample_text1.txt -i PERSON -i ORG -i DATE -i TIME -i EMAIL -i PHONE_NUMBER -i URL -i GPE
 Successfully Anonymized sample_email1.pdf in new file: sample_email1_anonymized.pdf
 ```
 Before:
