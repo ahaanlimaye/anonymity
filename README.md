@@ -63,9 +63,9 @@ CARDINAL | Numerals that do not fall under another type | 2, Two, Fifty-two
 Successfully Anonymized sample_email1.pdf in new file: sample_email1_anonymized.pdf
 ```
 Before:
-![PDF Before Anonymization](samples/before_img.jpg)
+![PDF Before Anonymization](samples/pdf_before_img1.jpg)
 After:
-![PDF After Anonymization](samples/after_img.jpg)
+![PDF After Anonymization](samples/pdf_after_img1.jpg)
 
 ### TXT File
 ```
@@ -73,22 +73,6 @@ After:
 Successfully Anonymized sample_email1.pdf in new file: sample_email1_anonymized.pdf
 ```
 Before:
-```txt
-Hi, my name is Ahaan Limaye. 
-
-Sometime in early March I joined the Slingshot Discord. 
-I applied for their fellowship program on slingshotahead.com. 
-I provided my contact information: ahaan.limaye@gmail.com and 908-821-6332. 
-I also stated that I live in New Jersey. 
-I am now doing this challenge for Open Source Sunday. 
-```
+![TXT Before Anonymization](samples/txt_before_img1.jpg)
 After:
-```txt
-Hi, my name is <PERSON>. 
-
-Sometime in <DATE> I joined <ORG>. 
-I applied for their fellowship program on <URL>. 
-I provided my contact information: <EMAIL> and <PHONE_NUMBER>. 
-I also stated that I live in <GPE>. 
-I am now doing this challenge for Open Source <DATE>. 
-```
+![TXT After Anonymization](samples/txt_after_img1.jpg)
