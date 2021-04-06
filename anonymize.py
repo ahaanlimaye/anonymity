@@ -39,6 +39,9 @@ def anonymize_pdf(filepath, pii):
     redactor = Redactor(path, pii)
     redactor.redaction()
 
+    print("Successfully Anonymized " + str(path.name) + " in new file: " + str(path.stem) + "_anonymized.pdf")
+
+
 # anonymizes/redacts info on TXT
 def anonymize_txt(filepath, pii):
 
@@ -58,6 +61,8 @@ def anonymize_txt(filepath, pii):
     f.write(text)
     f.truncate()
     f.close()
+
+    print("Successfully Anonymized " + str(path.name) + " in new file: " + str(path.stem) + "_anonymized.txt")
 
 if __name__ == "__main__":
     main()

@@ -54,4 +54,3 @@ class Redactor:
         # saving it to a new pdf
         newPath = Path(str(self.path.parent) + "/" + str(self.path.stem) + "_anonymized.pdf")
         doc.save(newPath)
-        print("Successfully redacted")
