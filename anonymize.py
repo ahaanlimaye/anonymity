@@ -1,41 +1,57 @@
+# imports
 from index import anonymize_text
 from pathlib import Path
-from fpdf import FPDF
-import pdfplumber
+from redact import Redactor
+import argparse
 
+# main function
+def main():
 
-def anonymize_pdf(filepath):
-    path = Path(filepath)
-    f = pdfplumber.open(path)
-    text = ""
-    for page in f.pages:
-        text += page.extract_text() + "\n"
-    f.close()
+    # sets arguments (Filename and PII's) for python script
+    parser = argparse.ArgumentParser(description="Anonymize a PDF or TXT file")
+    parser.add_argument("filepath", type=dir_path, nargs="+", help="Filepath for PDF or TXT file")
+    parser.add_argument("-i", action="append", required=True, help="Specify PII (PERSON, NORP, FAC, ORG, GPE, LOC, PRODUCT, EVENT, WORK_OF_ART, LAW, LANGUAGE, DATE, TIME, PERCENT, MONEY, QUANTITY, ORDINAL, CARDINAL, PROPER_NOUN, EMAIL, URL, PHONE_NUMBER)",
+                        default=[])
 
-    text = anonymize_text(text)
+    # calls anonymize function based on whether file type is PDF or TXT
+    args = parser.parse_args()
+    filepath = args.filepath[0]
+    pii = args.i
+    if (filepath[-4 : ] == ".pdf"):
+        anonymize_pdf(filepath, pii)
+    else:
+        anonymize_txt(filepath, pii)
 
-    path = Path(str(path.parent) + "/" + str(path.stem) + "_anonymized.txt")
-    print(path)
-    f = open(path, "w+")
-    f.write(text)
-    f.close()
+# file path data type
+def dir_path(path):
+    if Path(path) and (path[-4 : ] == ".pdf" or path[-4 : ] == ".txt"):
+        return path
+    else:
+        raise argparse.ArgumentTypeError(f"readable_dir:{path} is not a valid path")  
 
+# anonymizes/redacts info on PDF
+def anonymize_pdf(filepath, pii):
 
-    pdf = FPDF()
-    pdf.add_page()
-    pdf.set_font('Arial', 'B', 16)
-    pdf.cell(40, 10, 'Hello World!')
-    pdf.output('tuto1.pdf', 'F')
+    # gets PDF file
+    path = Path(filepath) 
 
+    # creates new redacted PDF in same directory as original PDF
+    redactor = Redactor(path, pii)
+    redactor.redaction()
 
-def anonymize_txt(filepath):
+# anonymizes/redacts info on TXT
+def anonymize_txt(filepath, pii):
+
+    # reads text from TXT file
     path = Path(filepath)
     f = open(path, "r")
     text = f.read()
     f.close()
 
-    text = anonymize_text(text)
+    # gets anonymized text
+    text = anonymize_text(text, pii)[0]
 
+    # creates new anonymized TXT is same directoyr as original TXT
     path = Path(str(path.parent) + "/" + str(path.stem) + "_anonymized.txt")
     f = open(path, "w+")
     f.seek(0)
@@ -43,7 +59,5 @@ def anonymize_txt(filepath):
     f.truncate()
     f.close()
 
-
 if __name__ == "__main__":
-    anonymize_pdf(
-        "C:\\Users\\ahaan\\OneDrive\\Desktop\\workspace\\Resume-AhaanLimaye.pdf")
+    main()

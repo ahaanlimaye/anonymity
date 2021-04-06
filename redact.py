@@ -1,37 +1,27 @@
 # imports
 from index import anonymize_text
+from pathlib import Path
 import fitz
-import re
   
 class Redactor:
     
     # static methods work independent of class object
     @staticmethod
-    def get_sensitive_data(lines):
+    def get_pii(lines, pii):
         
         """ Function to get all the lines """
           
-        # email regex
-        EMAIL_REG = r"([\w\.\d]+\@[\w\d]+\.[\w\d]+)"
         redact = []
         for line in lines:
             
-            redact += anonymize_text(line)[1]
-            
-            # matching the regex to each line
-            # if re.search(EMAIL_REG, line, re.IGNORECASE):
-            #     search = re.search(EMAIL_REG, line, re.IGNORECASE)
-                  
-            #     # yields creates a generator
-            #     # generator is used to return
-            #     # values in between function iterations
-            #     yield search.group(1)
-        
+            redact += anonymize_text(line, pii)[1]
+
         return redact
   
     # constructor
-    def __init__(self, path):
+    def __init__(self, path, pii):
         self.path = path
+        self.pii = pii
   
     def redaction(self):
         
@@ -46,14 +36,13 @@ class Redactor:
             # _wrapContents is needed for fixing
             # alignment issues with rect boxes in some
             # cases where there is alignment issue
-            # page._wrapContents()
+            page.wrapContents()
               
             # geting the rect boxes which consists the matching email regex
-            sensitive = self.get_sensitive_data(page.getText("text")
-                                                .split('\n'))
-            print(sensitive)
-            print()
-            for data in sensitive:
+            pii_data = self.get_pii(page.getText("text").split('\n'), self.pii)
+            # print(sensitive)
+            # print()
+            for data in pii_data:
                 areas = page.searchFor(data)
                   
                 # drawing outline over sensitive datas
@@ -63,13 +52,6 @@ class Redactor:
             page.apply_redactions()
               
         # saving it to a new pdf
-        doc.save('redacted.pdf')
+        newPath = Path(str(self.path.parent) + "/" + str(self.path.stem) + "_anonymized.pdf")
+        doc.save(newPath)
         print("Successfully redacted")
-  
-# driver code for testing
-if __name__ == "__main__":
-    
-    # replace it with name of the pdf file
-    path = 'ap20-english-language-and-composition-student-samples-obama.pdf'
-    redactor = Redactor(path)
-    redactor.redaction()
