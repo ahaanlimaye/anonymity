@@ -56,6 +56,6 @@ CARDINAL | Numerals that do not fall under another type | 2, Two, Fifty-two
 
 ## Example
 ```
->>> python anonymize.py c:\Users\ahaan\OneDrive\Desktop\workspace\pdf_txt_files\sample.pdf -i PERSON -i URL -i EMAIL -i PHONE_NUMBER -i DATE
-Successfully Anonymized sample.pdf in new file: sample_anonymized.pdf
+>>> python .\anonymize.py c:\Users\ahaan\OneDrive\Desktop\workspace\anonymity\samples\sample_email1.pdf -i PERSON -i EMAIL -i URL -i ORG -i DATE -i TIME    
+Successfully Anonymized sample_email1.pdf in new file: sample_email1_anonymized.pdf
 ```
