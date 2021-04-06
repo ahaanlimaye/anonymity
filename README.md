@@ -1,5 +1,5 @@
 # Anonymity
-A Python Script that uses Natural Language Processing to Anonymize Personally Identifiable Information (PII) in PDF and TXT documents
+A Python Script that uses Natural Language Processing to Anonymize Personally Identifiable Information (PII) in PDF and TXT documents while retaining information deemed important through keyword extraction
 
 ## Installation
 Git Clone this Repository and CD into Repository:
@@ -77,6 +77,9 @@ Before:
 After:
 ![TXT After Anonymization](samples/txt_after_img1.jpg)
 
+## What Anonymity Uses
+- Python, ScaPy NLP Library, PyMuPDF Library
+
 ## Known Bugs
 - Some PDFs may not be redacted very clearly depending on the formatting of the PDF file
 - Some PDFs may give errors due to being an outdated/unsupported PDF version
@@ -85,7 +88,6 @@ After:
 
 ## Future Improvements/Goals
 - Improve upon the NLP to be more accurate when it comes to identifying PIIs such as phone numbers, places, etc.
-- Have the script retain important information through keyword extraction
 - Create a Front End for the application and host it online
 
 ## Questions
