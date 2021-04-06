@@ -79,7 +79,7 @@ After:
 
 ## What it Uses
 - Python
-- ScaPy NLP Library
+- SpaCy NLP Library
 - PyMuPDF Library
 
 ## Known Bugs
