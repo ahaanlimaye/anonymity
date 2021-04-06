@@ -78,7 +78,9 @@ After:
 ![TXT After Anonymization](samples/txt_after_img1.jpg)
 
 ## What it Uses
-- Python, ScaPy NLP Library, PyMuPDF Library
+- Python
+- ScaPy NLP Library
+- PyMuPDF Library
 
 ## Known Bugs
 - Some PDFs may not be redacted very clearly depending on the formatting of the PDF file
