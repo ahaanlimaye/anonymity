@@ -18,9 +18,9 @@ python -m spacy download en_core_web_sm
 ```
 
 ## Usage
-Run anonymize.py with the following arguements:
-- Path to File (this can easily be done by dragging and dropping your file in the terminal window)
-- PII to anonymize (Called with "-i" option; Must use at least one ; Refer to PII table below)\
+Run anonymize.py in command line with the following arguements:
+- Path to File (this can easily be done by dragging and dropping your file in the command line window)
+- PII to anonymize (Called with "-i" option; Must use at least one ; Refer to PII table below)
 
 This Script creates a new anonymized file with the ending "_anonymized" in the same directory as the inputted file
 ```
@@ -63,32 +63,30 @@ CARDINAL | Numerals that do not fall under another type | 2, Two, Fifty-two
 Successfully Anonymized sample_email1.pdf in new file: sample_email1_anonymized.pdf
 ```
 Before:
-![PDF Before Anonymization](samples/before_img.jpg)
+![PDF Before Anonymization](samples/pdf_before_img1.jpg)
 After:
-![PDF After Anonymization](samples/after_img.jpg)
+![PDF After Anonymization](samples/pdf_after_img1.jpg)
 
 ### TXT File
 ```
->>> python c:\Users\ahaan\OneDrive\Desktop\workspace\anonymity\samples\sample_text1.txt -i PERSON -i ORG -i DATE -i TIME -i EMAIL -i PHONE_NUMBER -i GPE
+>>> python c:\Users\ahaan\OneDrive\Desktop\workspace\anonymity\samples\sample_text1.txt -i PERSON -i ORG -i DATE -i TIME -i EMAIL -i PHONE_NUMBER -i URL -i GPE
 Successfully Anonymized sample_email1.pdf in new file: sample_email1_anonymized.pdf
 ```
 Before:
-```txt
-Hi, my name is Ahaan Limaye. 
-
-Sometime in early March I joined the Slingshot Discord. 
-I applied for their fellowship program on slingshotahead.com. 
-I provided my contact information: ahaan.limaye@gmail.com and 908-821-6332. 
-I also stated that I live in New Jersey. 
-I am now doing this challenge for Open Source Sunday. 
-```
+![TXT Before Anonymization](samples/txt_before_img1.jpg)
 After:
-```txt
-Hi, my name is <PERSON>. 
+![TXT After Anonymization](samples/txt_after_img1.jpg)
 
-Sometime in <DATE> I joined <ORG>. 
-I applied for their fellowship program on <URL>. 
-I provided my contact information: <EMAIL> and <PHONE_NUMBER>. 
-I also stated that I live in <GPE>. 
-I am now doing this challenge for Open Source <DATE>. 
-```
+## Known Bugs
+- Some PDFs may not be redacted very clearly depending on the formatting of the PDF file
+- Some PDFs may give errors due to being an outdated/unsupported PDF version
+- Sometimes Phone Numbers may not be recognized due to unrecognized formats
+- Not all PIIs may get recognized by the script
+
+## Future Improvements/Goals
+- Improve upon the NLP to be more accurate when it comes to identifying PIIs such as phone numbers, places, etc.
+- Have the script retain important information through keyword extraction
+- Create a Front End for the application and host it online
+
+## Questions
+Email me at ahaan.limaye@gmail.com
