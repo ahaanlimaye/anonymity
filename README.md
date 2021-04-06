@@ -45,7 +45,8 @@ ORG | Companies, Agencies, Institutions, etc. | Microsoft, FBI, MIT
 GPE | Countries, Cities, States | France, UAR, Chicago, Idaho
 LOC | Non-GPE Locations, Mountain Ranges, Bodies of Water | Europe, Nile River, Midwest
 PRODUCT | Objects, Vehicles, Foods, etc. (Not Services) | Formula 1
-EVENT | Named Hurricanes, Battles, Wars, Sports Events, etc. | The Mona Lisa
+EVENT | Named Hurricanes, Battles, Wars, Sports Events, etc. | Olympic Games
+WORK_OF_ART | Titles of books, songs, etc. | The Mona Lisa
 LAW | Named Documents Made into Laws | Roe v. Wade
 LANGUAGE | Any Named Language | English
 DATE | Absolute or Relative Dates or Periods | July 20 1969
