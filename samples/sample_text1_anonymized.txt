@@ -1,0 +1,3 @@
+Hi, my name is <PERSON>. 
+
+Sometime in <DATE> I joined <ORG>. I applied for their fellowship program on <URL>. I provided my contact information: <EMAIL> and <PHONE_NUMBER>. I also stated that I live in <GPE>. I am now doing this challenge for Open Source <DATE>. 
