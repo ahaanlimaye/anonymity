@@ -19,7 +19,7 @@ python -m spacy download en_core_web_sm
 
 ## Usage
 Run anonymize.py in command line with the following arguements:
-- Path to File (this can easily be done by dragging and dropping your file in the command line window) **NOTE** : The file does not have to be in your anonymity directory => it can be located anywhere on your computer
+- Path to File (This can easily be done by dragging and dropping your file in the command line window; File **DOES NOT** have to be in your Anonymity Workspace => it can be located anywhere on your computer)
 - PII to anonymize (Called with "-i" option; Must use at least one ; Refer to PII table below)
 
 This Script creates a new anonymized file with the ending "_anonymized" in the same directory as the inputted file
