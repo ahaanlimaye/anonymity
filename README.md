@@ -76,3 +76,17 @@ Before:
 ![TXT Before Anonymization](samples/txt_before_img1.jpg)
 After:
 ![TXT After Anonymization](samples/txt_after_img1.jpg)
+
+## Known Bugs
+- Some PDFs may not be redacted very clearly depending on the formatting of the PDF file
+- Some PDFs may give errors due to being an outdated/unsupported PDF version
+- Sometimes Phone Numbers may not be recognized due to unrecognized formats
+- Not all PIIs may get recognized by the script
+
+## Future Improvements/Goals
+- Improve Upon NLP to be more accurate when it comes to PIIs such as phone numbers, places, etc.
+- Have the script retain important information through keyword extraction
+- Create a Front End for the application and host it online
+
+## Questions
+Email me at ahaan.limaye@gmail.com
