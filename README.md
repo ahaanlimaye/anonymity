@@ -56,25 +56,39 @@ QUANTITY | Measurements, as of Weight or Distance | Several kilometers, 55kg
 ORDINAL | "first", "second", etc. | 9th, Ninth
 CARDINAL | Numerals that do not fall under another type | 2, Two, Fifty-two
 
-## Example
+## Examples
+### PDF File
 ```
 >>> python .\anonymize.py c:\Users\ahaan\OneDrive\Desktop\workspace\anonymity\samples\sample_email1.pdf -i PERSON -i EMAIL -i URL -i ORG -i DATE -i TIME    
 Successfully Anonymized sample_email1.pdf in new file: sample_email1_anonymized.pdf
 ```
+Before:
 ![PDF Before Anonymization](samples/before_img.jpg)
+After:
 ![PDF After Anonymization](samples/after_img.jpg)
 
+### TXT File
 ```
 >>> python c:\Users\ahaan\OneDrive\Desktop\workspace\anonymity\samples\sample_text1.txt -i PERSON -i ORG -i DATE -i TIME -i EMAIL -i PHONE_NUMBER -i GPE
 Successfully Anonymized sample_email1.pdf in new file: sample_email1_anonymized.pdf
 ```
+Before:
 ```txt
 Hi, my name is Ahaan Limaye. 
 
-Sometime in early March I joined the Slingshot Discord. I applied for their fellowship program on slingshotahead.com. I provided my contact information: ahaan.limaye@gmail.com and 908-821-6332. I also stated that I live in New Jersey. I am now doing this challenge for Open Source Sunday. 
+Sometime in early March I joined the Slingshot Discord. 
+I applied for their fellowship program on slingshotahead.com. 
+I provided my contact information: ahaan.limaye@gmail.com and 908-821-6332. 
+I also stated that I live in New Jersey. 
+I am now doing this challenge for Open Source Sunday. 
 ```
+After:
 ```txt
 Hi, my name is <PERSON>. 
 
-Sometime in <DATE> I joined <ORG>. I applied for their fellowship program on <URL>. I provided my contact information: <EMAIL> and <PHONE_NUMBER>. I also stated that I live in <GPE>. I am now doing this challenge for Open Source <DATE>. 
+Sometime in <DATE> I joined <ORG>. 
+I applied for their fellowship program on <URL>. 
+I provided my contact information: <EMAIL> and <PHONE_NUMBER>. 
+I also stated that I live in <GPE>. 
+I am now doing this challenge for Open Source <DATE>. 
 ```
