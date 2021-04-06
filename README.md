@@ -70,7 +70,7 @@ After:
 ### TXT File
 ```
 >>> python anonymize.py c:\Users\ahaan\OneDrive\Desktop\workspace\anonymity\samples\sample_text1.txt -i PERSON -i ORG -i DATE -i TIME -i EMAIL -i PHONE_NUMBER -i URL -i GPE
-Successfully Anonymized sample_email1.pdf in new file: sample_email1_anonymized.pdf
+Successfully Anonymized sample_text1.txt in new file: sample_text1_anonymized.txt
 ```
 Before:
 ![TXT Before Anonymization](samples/txt_before_img1.jpg)
