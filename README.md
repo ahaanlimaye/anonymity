@@ -59,7 +59,7 @@ CARDINAL | Numerals that do not fall under another type | 2, Two, Fifty-two
 ## Examples
 ### PDF File
 ```
->>> python .\anonymize.py c:\Users\ahaan\OneDrive\Desktop\workspace\anonymity\samples\sample_email1.pdf -i PERSON -i EMAIL -i URL -i ORG -i DATE -i TIME    
+>>> python anonymize.py c:\Users\ahaan\OneDrive\Desktop\workspace\anonymity\samples\sample_email1.pdf -i PERSON -i EMAIL -i URL -i ORG -i DATE -i TIME    
 Successfully Anonymized sample_email1.pdf in new file: sample_email1_anonymized.pdf
 ```
 Before:
@@ -69,7 +69,7 @@ After:
 
 ### TXT File
 ```
->>> python c:\Users\ahaan\OneDrive\Desktop\workspace\anonymity\samples\sample_text1.txt -i PERSON -i ORG -i DATE -i TIME -i EMAIL -i PHONE_NUMBER -i URL -i GPE
+>>> python anonymize.py c:\Users\ahaan\OneDrive\Desktop\workspace\anonymity\samples\sample_text1.txt -i PERSON -i ORG -i DATE -i TIME -i EMAIL -i PHONE_NUMBER -i URL -i GPE
 Successfully Anonymized sample_email1.pdf in new file: sample_email1_anonymized.pdf
 ```
 Before:
