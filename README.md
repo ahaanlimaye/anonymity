@@ -20,7 +20,9 @@ python -m spacy download en_core_web_sm
 ## Usage
 Run anonymize.py with the following arguements:
 - Path to File (this can easily be done by dragging and dropping your file in the terminal window)
-- PII to anonymize (Called with "-i" option; Must use at least one ; Refer to PII table below)
+- PII to anonymize (Called with "-i" option; Must use at least one ; Refer to PII table below)\
+
+This Script creates a new anonymized file with the ending "_anonymized" in the same directory as the inputted file
 ```
 python anonymize.py <PATH TO PDF/TXT FILE> -i <PII #1> -i <PII #2> -i <PII #3> ...
 ```
@@ -59,3 +61,5 @@ CARDINAL | Numerals that do not fall under another type | 2, Two, Fifty-two
 >>> python .\anonymize.py c:\Users\ahaan\OneDrive\Desktop\workspace\anonymity\samples\sample_email1.pdf -i PERSON -i EMAIL -i URL -i ORG -i DATE -i TIME    
 Successfully Anonymized sample_email1.pdf in new file: sample_email1_anonymized.pdf
 ```
+![PDF Before Anonymization](samples/before_img.jpg)
+![PDF After Anonymization](samples/after_img.jpg)
