@@ -20,7 +20,7 @@ python -m spacy download en_core_web_sm
 ## Usage
 Run anonymize.py with the following arguements:
 - Path to File (this can easily be done by dragging and dropping your file in the terminal window)
-- PII to anonymize (Called with "-i" option; Must use at least one ; Refer to [PII table](#-pii-(personally-identifiable-information)-options))
+- PII to anonymize (Called with "-i" option; Must use at least one ; Refer to PII table below)
 ```
 python anonymize.py <PATH TO PDF/TXT FILE> -i <PII #1> -i <PII #2> -i <PII #3> ...
 ```
