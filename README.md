@@ -77,7 +77,7 @@ Before:
 After:
 ![TXT After Anonymization](samples/txt_after_img1.jpg)
 
-## What Anonymity Uses
+## What it Uses
 - Python, ScaPy NLP Library, PyMuPDF Library
 
 ## Known Bugs
