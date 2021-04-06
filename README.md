@@ -18,9 +18,9 @@ python -m spacy download en_core_web_sm
 ```
 
 ## Usage
-Run anonymize.py in terminal with the following arguements:
-- Path to File (this can easily be done by dragging and dropping your file in the terminal window)
-- PII to anonymize (Called with "-i" option; Must use at least one ; Refer to PII table below)\
+Run anonymize.py in command line with the following arguements:
+- Path to File (this can easily be done by dragging and dropping your file in the command line window)
+- PII to anonymize (Called with "-i" option; Must use at least one ; Refer to PII table below)
 
 This Script creates a new anonymized file with the ending "_anonymized" in the same directory as the inputted file
 ```
@@ -84,7 +84,7 @@ After:
 - Not all PIIs may get recognized by the script
 
 ## Future Improvements/Goals
-- Improve Upon NLP to be more accurate when it comes to PIIs such as phone numbers, places, etc.
+- Improve upon the NLP to be more accurate when it comes to identifying PIIs such as phone numbers, places, etc.
 - Have the script retain important information through keyword extraction
 - Create a Front End for the application and host it online
 
