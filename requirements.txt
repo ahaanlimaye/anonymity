@@ -1,4 +1,2 @@
 spacy
-fitz
-frontend
 PyMuPDF
