@@ -1,6 +1,8 @@
 # imports
 import spacy
 from spacy.matcher import Matcher
+from collections import Counter
+from string import punctuation
 nlp = spacy.load('en_core_web_sm')
 nlp.add_pipe("merge_noun_chunks")
 nlp.add_pipe("merge_entities")
@@ -20,8 +22,32 @@ def merge_phone_number(doc):
         with doc.retokenize() as retokenizer:
             retokenizer.merge(doc[matches[i][1]:matches[i][2]], attrs={"ENT_TYPE": "PHONE_NUMBER"})
 
+# extracts keywords out of text
+def get_keywords(text):
+
+    # sets list for keywords
+    keywords = []
+
+    # pats-of-speech tags to recognize words on
+    pos_tag = ['PROPN', 'ADJ', 'NOUN']
+
+    # creates doc out of text and iterates through tokens, finding keywords
+    doc = nlp(text.lower())
+    for token in doc:
+        if(token.text in nlp.Defaults.stop_words or token.text in punctuation):
+            continue
+        if(token.pos_ in pos_tag):
+            keywords.append(token.text)    
+
+    # makes keywords array unique and returns it
+    keywords = set(keywords)        
+    return keywords
+
 # anonymizes string based on the inputted PIIs
 def anonymize_text(str, pii):
+
+    # extracts keywords from text
+    keywords = get_keywords(str)
 
     # creates proper nlp doc for inputted string
     text = (str)
@@ -35,16 +61,16 @@ def anonymize_text(str, pii):
     # iterates through the tokens in the doc and anonymizes/redacts any specified PIIs
     for token in doc:
         txt = ""
-        if (token.like_email and "EMAIL" in pii):
+        if (token.like_email and "EMAIL" in pii and token.text not in keywords):
             txt = "<EMAIL>"
             redact.append(token.text)
-        elif (token.like_url and "URL" in pii):
+        elif (token.like_url and "URL" in pii and token.text not in keywords):
             txt = "<URL>"
             redact.append(token.text)
-        elif (token.ent_type_ in pii):
+        elif (token.ent_type_ in pii and token.text not in keywords):
             txt = "<" + token.ent_type_ + ">"
             redact.append(token.text)
-        elif (token.pos_ in pii):
+        elif (token.pos_ in pii and token.text not in keywords):
             txt = "<" + token.pos_ + ">"
             redact.append(token.text)
         else:
