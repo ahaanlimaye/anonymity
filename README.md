@@ -92,6 +92,3 @@ After:
 ## Future Improvements/Goals
 - Improve upon the NLP to be more accurate when it comes to identifying PIIs such as phone numbers, places, etc.
 - Create a Front End for the application and host it online
-
-## Questions?
-Email me at ahaan.limaye@gmail.com
